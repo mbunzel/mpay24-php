@@ -183,6 +183,9 @@ abstract class AbstractResponse
      */
     protected function getBody($element)
     {
+    	if($this->responseAsDom == null || !($this->responseAsDom instanceof DOMDocument))
+			return null;
+    	
         return $this->responseAsDom->getElementsByTagNameNS(self::NAME_SPACE, $element)->item(0);
     }
 }

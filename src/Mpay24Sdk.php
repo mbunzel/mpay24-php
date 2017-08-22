@@ -682,6 +682,9 @@ class Mpay24Sdk
                 }
             }
 
+			if(defined('CURLOPT_SSLVERSION') && defined('CURL_SSLVERSION_TLSv1_1'))
+            	curl_setopt($ch, constant('CURLOPT_SSLVERSION'), constant('CURL_SSLVERSION_TLSv1_1'));
+			
             $this->response = curl_exec($ch);
             curl_close($ch);
 
@@ -694,7 +697,7 @@ class Mpay24Sdk
                 $dieMSG = self::LIVE_ERROR_MSG;
             }
 
-            echo $dieMSG;
+            throw new \Exception($dieMSG);
         }
 
         if ($this->config->isEnableCurlLog()) {

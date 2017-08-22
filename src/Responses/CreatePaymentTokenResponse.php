@@ -52,11 +52,7 @@ class CreatePaymentTokenResponse extends AbstractResponse
     public function __construct($response)
     {
         parent::__construct($response);
-
-        if ($this->hasNoError()) {
-
-            $this->parseResponse($this->getBody('CreatePaymentTokenResponse'));
-        }
+        $this->parseResponse($this->getBody('CreatePaymentTokenResponse'));
     }
 
     /**
@@ -108,6 +104,9 @@ class CreatePaymentTokenResponse extends AbstractResponse
      */
     protected function parseResponse($body)
     {
+    	if (empty($body) || !is_object($body))
+    		return;
+
         if ($body->getElementsByTagName('token')->length > 0) {
             $this->token = $body->getElementsByTagName('token')->item(0)->nodeValue;
         }
