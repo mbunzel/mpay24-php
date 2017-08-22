@@ -373,7 +373,7 @@ class Mpay24Sdk
      *
      * @return CreatePaymentTokenResponse
      */
-    public function createTokenPayment($pType, array $additional = [])
+    public function createTokenPayment($pType, array $additional = array())
     {
         $request = new CreatePaymentToken($this->config->getMerchantId());
 
@@ -399,7 +399,7 @@ class Mpay24Sdk
      *
      * @return AcceptPaymentResponse
      */
-    public function acceptPayment($type, $tid, $payment = [], $additional = [])
+    public function acceptPayment($type, $tid, $payment = array(), $additional = array())
     {
         $request = new AcceptPayment($this->config->getMerchantId());
 
@@ -605,7 +605,7 @@ class Mpay24Sdk
      *
      * @return CreateCustomerResponse
      */
-    public function createCustomer($type, $customerId ,$payment = [], $additional = [])
+    public function createCustomer($type, $customerId ,$payment = array(), $additional = array())
     {
         $request = new CreateCustomer($this->config->getMerchantId());
 

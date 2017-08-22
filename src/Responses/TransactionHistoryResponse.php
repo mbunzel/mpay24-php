@@ -22,7 +22,7 @@ class TransactionHistoryResponse extends AbstractResponse
     /**
      * @var array
      */
-    protected $history = [];
+    protected $history = array();
 
     /**
      * Sets the response for the transaction History given by the response from mPAY24
@@ -90,7 +90,7 @@ class TransactionHistoryResponse extends AbstractResponse
 
             for ($i = 0; $i < $this->historyCount; $i++) {
 
-                $this->history[$i] = [];
+                $this->history[$i] = array();
 
                 $historyEntry = $body->getElementsByTagName('historyEntry')->item($i);
 

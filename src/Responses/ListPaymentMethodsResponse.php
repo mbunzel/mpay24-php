@@ -26,28 +26,28 @@ class ListPaymentMethodsResponse extends AbstractResponse
      *
      * @var array
      */
-    protected $pTypes = [];
+    protected $pTypes = array();
 
     /**
      * A list with the brands, activated by mPAY24
      *
      * @var array
      */
-    protected $brands = [];
+    protected $brands = array();
 
     /**
      * A list with the descriptions of the payment methods, activated by mPAY24
      *
      * @var array
      */
-    protected $descriptions = [];
+    protected $descriptions = array();
 
     /**
      * A list with the IDs of the payment methods, activated by mPAY24
      *
      * @var array
      */
-    protected $pMethIds = [];
+    protected $pMethIds = array();
 
     /**
      * Sets the values for a payment from the response from mPAY24: count, payment types, brands and descriptions

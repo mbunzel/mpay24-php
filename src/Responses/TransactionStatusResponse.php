@@ -22,7 +22,7 @@ class TransactionStatusResponse extends AbstractResponse
     /**
      * @var array
      */
-    protected $transaction = [];
+    protected $transaction = array();
 
     /**
      * Sets the values for a transaction from the response from mPAY24: STATUS, PRICE, CURRENCY, LANGUAGE, etc

@@ -39,7 +39,7 @@ class Mpay24Confirmation
      * The properties, which are allowed for a transaction
      * @const CONFIRMATION_PROPERTIES
      */
-    const CONFIRMATION_PROPERTIES = [
+    const CONFIRMATION_PROPERTIES = array(
         'OPERATION'      => 'CONFIRMATION',
         'TID'            => '.{0,32}',
         'STATUS'         => '(RESERVED|BILLED|REVERSED|CREDITED|ERROR)',
@@ -58,14 +58,14 @@ class Mpay24Confirmation
         'PROFILE_STATUS' => '(IGNORED|USED|ERROR|CREATED|UPDATED|DELETED)',
         'FILTER_STATUS'  => '.*',
         'APPR_CODE'      => '.*',
-    ];
+    );
 
     /**
      * An array, which contains the set properties for the confirmation object
      *
      * @property array $properties
      */
-    protected $parameters = [];
+    protected $parameters = array();
 
     /**
      * Confirmation constructor.
@@ -124,7 +124,7 @@ class Mpay24Confirmation
      */
     public static function cleanUpArray(array $parameters)
     {
-        $cleanup = [];
+        $cleanup = array();
 
         foreach ($parameters as $name => $value) {
             if (array_key_exists($name, self::CONFIRMATION_PROPERTIES)) {
@@ -159,7 +159,8 @@ class Mpay24Confirmation
     {
         $this->isPropertyValid($property);
 
-        $regEx = '/^' . self::CONFIRMATION_PROPERTIES[$property] . '$/';
+        $tmp = self::CONFIRMATION_PROPERTIES;
+        $regEx = '/^' . $tmp[$property] . '$/';
 
         if (preg_match($regEx, $value) != 1) {
             throw new InvalidArgumentException("The value " . $value . " for the property " . $property . ", is invalid");

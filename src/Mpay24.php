@@ -186,7 +186,7 @@ class Mpay24
      *
      * @return Responses\CreatePaymentTokenResponse
      */
-    public function token($paymentType, array $additional = [])
+    public function token($paymentType, array $additional = array())
     {
         $this->integrityCheck();
 
@@ -271,7 +271,7 @@ class Mpay24
      *
      * @return Responses\CreateCustomerResponse
      */
-    public function createCustomer($paymentType, $customerId, $payment, $additional = [])
+    public function createCustomer($paymentType, $customerId, $payment, $additional = array())
     {
         $this->integrityCheck();
         $createCustomerRes = $this->mpay24Sdk->createCustomer($paymentType, $customerId, $payment, $additional);
